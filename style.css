@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", "Poppins", sans-serif;
+    background: linear-gradient(135deg, #fdfcfb, #e8f0ff);
+    color: #2d2d2d;
+}
+
+.header {
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    text-align: center;
+    padding: 40px 20px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.designation {
+    font-size: 17px;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    padding: 50px 60px;
+    gap: 45px;
+}
+
+.profile-image img {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.profile-text {
+    max-width: 650px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.section {
+    background: #ffffff;
+    padding: 22px 28px;
+    margin: 25px 60px;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    transition: 0.25s;
+}
+
+.section:hover {
+    transform: translateY(-4px);
+}
+
+ul {
+    list-style-type: circle;
+    padding-left: 25px;
+}
+
+.footer {
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #0d1b2a;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .section {
+        margin: 20px;
+    }
+}
