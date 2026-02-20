@@ -2,8 +2,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Segoe UI", "Poppins", sans-serif;
-    background: linear-gradient(135deg, #fdfcfb, #e8f0ff);
-    color: #2d2d2d;
 }
 
 .header {
