@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Deepak Nishad | Portfolio</title>
@@ -8,73 +7,132 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .title {
-            font-family: Georgia, serif;
-            font-size: 20px;
-            letter-spacing: 1px;
+        .title { font-family: Georgia, serif; font-size: 20px; letter-spacing: 1px; }
+        .highlight { background-color: #d6c8ff; font-weight: bold; }
+
+        .theme-box {
+            text-align: center;
+            padding: 25px;
+            margin: 30px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #e6d9ff, #f3ecff);
         }
+
+        body.slate { background-color: #e9edf3; }
+        body.sand { background-color: #f5efe6; }
+        body.sky { background-color: #eaf6ff; }
     </style>
 </head>
 
-<body>
+<body class="purple">
 
-    <header class="header">
-        <h1 style="margin:0;">Deepak Nishad</h1>
-		<h2 style="font-family: 'Trebuchet MS', sans-serif;">Student at V.E.S.I.T.</h2>
-    </header>
+<header class="header">
+    <h1 style="margin:0;">Deepak Nishad</h1>
+    <h2 style="font-family:'Trebuchet MS', sans-serif;">Student at V.E.S.I.T.</h2>
+</header>
 
-    <div class="profile-container">
-
-        <div class="profile-image">
-            <img src="profilepic.jpg" alt="Profile Photo">
-        </div>
-
-        <div class="profile-text">
-            <h2 class="title">About Me</h2>
-            <p style="font-weight: 500;">
-           I enjoy transforming ideas into working software.
-                Currently learning web technologies, programming fundamentals,
-                and system design. My aim is to build useful tools,
-                stay curious, and improve every single day.
-            </p>
-        </div>
+<div class="profile-container">
+    <div class="profile-image">
+        <img src="profilepic.jpg" alt="Profile Photo">
     </div>
-
-
-    <div class="section">
-        <h2 class="title">Hobbies</h2>
-        <ul>
-            <li>Experimenting with code and small projects</li>
-            <p>Coding experiments, music playlists, reading tech blogs, and quiet walks.</p>
-        </ul>
+    <div class="profile-text">
+        <h2 class="title">About Me</h2>
+        <p style="font-weight:500;">
+            I enjoy transforming ideas into working software.
+            Currently learning web technologies, programming fundamentals,
+            and system design.
+        </p>
     </div>
+</div>
 
+<div class="section">
+    <h2 class="title">Hobbies</h2>
+    <ul>
+        <li>Experimenting with code</li>
+        <li>Music and tech blogs</li>
+    </ul>
+</div>
 
-    <div class="section">
-        <h2 class="title">Passion</h2>
-         <p>Designing clean software, solving real problems, and continuous learning.</p>
-    </div>
+<div class="section">
+    <h2 class="title">Skills</h2>
+    <input type="text" id="skillInput" placeholder="Enter a skill">
+    <button onclick="addSkill()">Add</button>
+    <button onclick="toggleHighlight()">Highlight</button>
+    <button onclick="removeSkill()">Remove</button>
 
+    <ul id="skillList">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+</div>
 
-    <div class="section">
-        <h2 class="title">Past Work</h2>
-      <p>Mini projects, portfolio pages, C programs, and academic assignments.</p>
-    </div>
+<div class="section">
+    <h2 class="title">Passion</h2>
+    <p id="passion">Designing clean software.</p>
+    <button onclick="changeText()">Change Passion</button>
+</div>
 
+<div class="section">
+    <h2 class="title">Past Work</h2>
+    <p>Mini projects and academic assignments.</p>
+</div>
 
-    <div class="section">
-        <h2 class="title">Social Life</h2>
-   <p>Group projects, teamwork, tech discussions, and college events.</p>
-    </div>
+<div class="section">
+    <h2 class="title">Social Life</h2>
+    <p>Teamwork, discussions, and college events.</p>
+</div>
 
+<div class="theme-box">
+    <h2 class="title">Change Theme</h2>
+    <button onclick="setTheme('slate')">Slate</button>
+    <button onclick="setTheme('sand')">Sand</button>
+    <button onclick="setTheme('sky')">Sky</button>
+</div>
 
-    <footer class="footer">
-        <p>Let’s connect</p>
-        <a href="https://www.github.com/Deepaknishad45" target="_blank">Github</a> |
-        <a href="https://www.linkedin.com/in/deepak-nishad-bb6454282/" target="_blank">LinkedIn</a> |
-        <a href="https://www.instagram.com/deepaknishad_06" target="_blank">Instagram</a>
-    </footer>
+<footer class="footer">
+    <p>Let’s connect</p>
+    <a href="https://www.github.com/Deepaknishad45">Github</a> |
+    <a href="https://www.linkedin.com/in/deepak-nishad-bb6454282/">LinkedIn</a>
+</footer>
+
+<script>
+const passions = [
+    "Designing clean software.",
+    "Exploring new technologies.",
+    "Building useful tools."
+];
+
+let p = 0, highlighted = false;
+
+function changeText() {
+    p = (p + 1) % passions.length;
+    passion.innerText = passions[p];
+}
+
+function addSkill() {
+    if (skillInput.value.trim()) {
+        skillList.innerHTML += `<li>${skillInput.value}</li>`;
+        skillInput.value = "";
+        highlighted = false;
+    }
+}
+
+function removeSkill() {
+    skillList.lastElementChild?.remove();
+    highlighted = false;
+}
+
+function toggleHighlight() {
+    let items = skillList.children;
+    if (!items.length) return;
+    items[items.length - 1].classList.toggle("highlight");
+    highlighted = !highlighted;
+}
+
+function setTheme(theme) {
+    document.body.className = theme;
+}
+</script>
 
 </body>
-
 </html>
